@@ -2,22 +2,6 @@
 package org.example
 
 
-///////////////////////// EJERCICIO 1 /////////////////////////
-fun calcularPromedio (nota1: Double, nota2: Double): Double {
-    return (nota1 + nota2) / 2
-}
-
-fun esAprobado(nota: Double): Boolean {
-    return nota >= 6.0
-}
-
-
-///////////////////////// EJERCICIO 2 /////////////////////////
-
-
-
-
-
 fun main() {
     println("=== Etapa 1: Funciones Básicas ===")
     // TODO: Implementar función calcularPromedio
@@ -65,39 +49,49 @@ fun main() {
     println("Cantidad de aprobados: ${contarAprobados(notas)}")
 }
 
+
+
+
 // TODO: Implementar las siguientes funciones:
 
 // Etapa 1
 fun calcularPromedio(nota1: Double, nota2: Double): Double {
     // Implementar aquí
-    return 0.0
+    return (nota1 + nota2) / 2
 }
 
 fun esAprobado(nota: Double): Boolean {
     // Implementar aquí
-    return false
+    return nota >= 6.0
 }
 
 // Etapa 2
 fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
     // Implementar aquí
-    return 0.0
+    return (nota1 + nota2 + nota3) / 3
 }
 
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
     // Implementar aquí
-    return ""
+    val estado = if (esAprobado(nota)) "Aprobado" else "Desaprobado"
+    return "$nombre $apellido está $estado"
 }
 
 // Etapa 3
 fun calcularPromedioCurso(notas: List<Double>): Double {
     // Implementar aquí
-    return 0.0
+    val promedio = notas.average()
+    return promedio
 }
 
 fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
-    // Implementar aquí
-    return emptyList()
+    val listaAprobados = mutableListOf<String>()
+    for (i in nombres.indices) {
+        if (esAprobado(notas[i])) {
+            listaAprobados.add(nombres[i])
+        }
+    }
+    return listaAprobados
 }
 
 // Etapa 4
